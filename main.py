@@ -3,6 +3,7 @@ from utilis.audio_to_text import audio_to_text
 from utilis.load_srt import load_srt
 from utilis.get_doc import gettingdoc
 from utilis.write_md import write_md
+from utilis.json_creater import create_json_from_files
 
 
 video_path = "D:/coding/python_whisper_srt/static/source.mp4"  # Path to get the video file.
@@ -21,3 +22,10 @@ prompt = "You are a technical writer, specializing in writing easy to understand
 document_md = gettingdoc(srttext, prompt)  # sending srt text and prompt to llm and getting the the reply and storing it into a variavle.
 
 write_md(document_md, md_path)  # Saving the .md file  
+
+
+srt_file_path = transcription_path 
+md_file_path = md_path
+prompt_text = prompt
+
+create_json_from_files(srt_file_path, md_file_path, prompt_text)
